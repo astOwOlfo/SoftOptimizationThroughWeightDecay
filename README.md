@@ -72,6 +72,10 @@ I argue that this counterargument is invalid. Indeed:
 - Epsilon is bigger at the beginning - in fact, at the first step, epsilon is 1, so the policy is completely random!
 - Even if epsilon were constant an we observed a smooth increase of the total (which I think we would), policies found earlier in training aren't necessarily simpler - they could be a more noisy/confused/drunk version of the same simple policy, for example.
 
+If the explanation is correct, it would suggest training would work for smaller aspirations.
+For example, the very simple policy of alwasy goin to the right if the angle of the pole is positive and to the left if it's negative has an average total of 42.
+I am currently waiting for this experiment to finish computing.
+
 # Supervised learning
 
 Notice that our approach is not specific to reinforcement learning.
