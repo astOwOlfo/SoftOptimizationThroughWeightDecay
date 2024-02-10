@@ -18,7 +18,7 @@ We control the weight decay in the following way:
 - When it is below the min aspiration, we divide the weight decay by 1.01.
 - The weight decay is clipped to [0.5, 100].
 
-#[image](images/checkers_weight_decay_scehduler.png)
+#[image](images/checkers_weight_decay_scheduler.png)
 
 Details in order of importance:
 - Test total: Although during training, the total seem to be not far away from the aspiration interval [0.4, 0.6] (or at least it is the case on the graph, I didn't do anything quantitative), the test total is much higher - 0.9. I strongly suspect this is because during training, the model is handicaped by the epsilon greedy exploration (that is every action the model takes has a 5% chance of getting replaced by a random action).
