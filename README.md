@@ -10,6 +10,8 @@ This is motivated by the fact that if one sees the weight decay as a bias on sim
 
 A very similar research direction I am equally excited about is doing the same thing but with a penalty on the distance of the model's weights and/or outputs from those of a less capable model we think to be less dangerous.
 
+Sorry for the loaded language (reward, perfect, etc.)
+
 # Aspiration learning on DQN via weight decay control
 
 We train a DQN on a simple environment (checkers with a 4x4 board and simplified rules).
@@ -52,6 +54,23 @@ Instead of the average total staying in the middle, it oscillates between very l
 ![image](images/cartpole_doesnt_work.png)
 
 Despite somewhat thorough babysitting, we observed that when trained with an adaptative weight decay, the cartpole agent behaves either similarly to the plot above or its total becomes near perfect or its total becomes very low.
+
+#### Conjecture on why this could happen
+
+All the following is very speculative
+
+In the following, we assume that low sum of square weights means simpler model.
+
+The aspiration is 150, which is quite high (a random policy achieves something like 15 or 25 if I remember correctly).
+So it seems possible that the simplest policy which performs on average better than the aspiration is in fact the perfect policy.
+We assume this is true.
+Then, one cannot find a solution that is better than the aspiration but not perfect by penalizing complexity!
+So one should expect what we did to fail.
+
+One could say "But look, when the total first starts increasing, it increases smoothly! So the assumption and therefore the explanation is incorrect."
+I argue that this counterargument is invalid. Indeed:
+- Epsilon is bigger at the beginning - in fact, at the first step, epsilon is 1, so the policy is completely random!
+- Even if epsilon were constant an we observed a smooth increase of the total (which I think we would), policies found earlier in training aren't necessarily simpler - they could be a more noisy/confused/drunk version of the same simple policy, for example.
 
 # Supervised learning
 
