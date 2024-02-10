@@ -89,6 +89,10 @@ We trained the same model on the same task with different weight decays and meas
 
 ![image](images/fashion_mnist_different_weigth_decays.png)
 
+And heer is the same graph with higher resolution and around the steepest point:
+
+![image](images/fashion_mnist_different_weight_decays_zoom.png)
+
 We train the model for 10 epochs.
 When we trained it for 100 epochs (without doing aspiration learning, just trying to minimize the loss) we had overfitting problems - the test accuracy was 92.5% but the training accuracy was near perfect.
 
