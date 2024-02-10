@@ -58,7 +58,7 @@ Despite somewhat thorough babysitting, we observed that when trained with an ada
 Notice that our approach is not specific to reinforcement learning.
 We applied it to a small CNN network on Fashion MNIST (the task of classifying 28 x 28 images of wardrobe items into 10 categories).
 
-![image](images/fashion_mnist_weight_decay_regulator.png)
+![image](images/fashion_mnist_different_weigth_decays.png)
 
 We train the model for 10 epochs.
 When we trained it (without doing aspiration learning, just trying to minimize the loss) we had overfitting problems - the test accuracy was 92.5% but the training accuracy was near perfect.
