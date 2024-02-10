@@ -81,20 +81,20 @@ I am currently waiting for this experiment to finish computing.
 Notice that our approach is not specific to reinforcement learning.
 We applied it to a small CNN network on Fashion MNIST (the task of classifying 28 x 28 images of wardrobe items into 10 categories).
 
-![image](images/fashion_mnist_different_weigth_decays.png)
-
-We train the model for 10 epochs.
-When we trained it (without doing aspiration learning, just trying to minimize the loss) we had overfitting problems - the test accuracy was 92.5% but the training accuracy was near perfect.
+![image](images/fashion_mnist_weight_decay_regulator.png)
 
 ## Effect of fixed weight decay
 
 We trained the same model on the same task with different weight decays and measured its performance.
 
-![image](images/fashion_mnist_weight_decay_regulator.png)
+![image](images/fashion_mnist_different_weigth_decays.png)
+
+We train the model for 10 epochs.
+When we trained it for 100 epochs (without doing aspiration learning, just trying to minimize the loss) we had overfitting problems - the test accuracy was 92.5% but the training accuracy was near perfect.
 
 Note that many of the training loss graphs look like this for training this model with a fixed but rather big weight decay:
 
 ![image](images/fashion_mnist_training.png)
 
-I observed a similar behavior when training an autoencoder with a penalty on the residual space.
+I observed a similar behavior when training an autoencoder with a penalty on the latent space for another project.
 This might be a general phenomenon when training a neural network with both a loss and a penalty - does anyone know it?
